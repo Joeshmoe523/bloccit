@@ -4,7 +4,7 @@ require 'faker'
 50.times do 
   Post.create!(
     title:  Faker::Lorem.sentence,
-    body:   Faker::Loren.paragraph
+    body:   Faker::Lorem.paragraph
   )
 end
 posts = Post.all
