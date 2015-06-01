@@ -15,6 +15,7 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'devise'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
