@@ -24,5 +24,10 @@
         <%= f.submit "Save", class: 'btn btn-success' %>
       </div>
     <% end %>
+    <%= form_for(@post, action: "/posts/#{@post.id}", method: :delete) do |f| %>
+      <div class="form-group">
+        <%= f.submit "Delete", class: 'btn btn-danger' %>
+      </div>
+    <% end %>
   </div>
 </div>  
