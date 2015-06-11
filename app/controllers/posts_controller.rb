@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all 
-    authorize @posts
+    policy_scope(Post)
   end
 
   def show
