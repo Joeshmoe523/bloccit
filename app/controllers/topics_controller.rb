@@ -22,7 +22,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts
+    @posts = policy_scope(@topic.posts)
     authorize @topic
   end
 

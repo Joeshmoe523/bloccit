@@ -7,19 +7,23 @@
 <div class="row">
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
-    <% @posts.each do |post| %>
-      <div class="media">
-        <div class="media-body">
-          <h4 class="media-heading">
-            <%= link_to post.title, [@topic, post] %>
-          </h4>
-          <small>
-            submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
-            <%= post.comments.count %> Comments
-          </small>
+    <% if current_user %>
+      <% @posts.each do |post| %>
+        <div class="media">
+          <div class="media-body">
+            <h4 class="media-heading">
+              <%= link_to post.title, [@topic, post] %>
+            </h4>
+            <small>
+              submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br>
+              <%= post.comments.count %> Comments
+            </small>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    <% else %>
+      <h3>You have not created posts for this topic.</h3>
+    <% end %>  
   </div>
   <div class="col-mod-4">
     <% if policy(Post.new).create? %>
