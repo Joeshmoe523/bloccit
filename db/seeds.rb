@@ -35,8 +35,8 @@ posts = Post.all
 #Create Comments
 100.times do 
   Comment.create!(
-    # user: users.sample
     post: posts.sample,
+    user: users.sample,
     body: Faker::Lorem.paragraph
   )
 end

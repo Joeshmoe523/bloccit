@@ -21,6 +21,13 @@
 
   <%= form_group_tag(post.errors[:image]) do %>
     <%= f.label :image %>
+    <div class="row">
+      <div class="col-md-8">
+        <% if post.image? %>
+          <%= image_tag(post.image.medium.url) %>
+        <% end %> 
+      </div>
+    </div>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   <% end %>
