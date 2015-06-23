@@ -15,6 +15,12 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'fog'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
 gem 'redcarpet'
 
 gem 'figaro', '1.0'
