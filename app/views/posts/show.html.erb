@@ -21,6 +21,9 @@
     <% if policy(@post).edit? %>
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
+    <% if policy(@post).destroy? %>
+      <%= link_to "Delete Post", [@topic, @post] , method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this post?' } %>
+    <% end %>
   </div>
 </div>
 
@@ -33,5 +36,7 @@
 </div>
 
 <h5><strong>Comments for this Post</strong></h5>
-<%= render template: "comments/_comment" %>
+<% @comment.each do |comment| %>
+  <%= render partial: 'comments/comment', locals: { comment: comment } %>
+<% end %>
 

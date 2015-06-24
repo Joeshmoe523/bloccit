@@ -1,9 +1,12 @@
-<% @comment.each do |comment| %>
-  <div class="row comment-buffer">
-    <div class="col-md-8">
-      <%= comment.body %>
-    </div>
+<div class="media">
+  <div class="media-body">
+    <small>
+      <% if policy(comment).destroy? %>
+        <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+      <% end %>
+    </small>
+    <p><%= comment.body %></p>
   </div>
+</div>
 
-<% end %>
 
