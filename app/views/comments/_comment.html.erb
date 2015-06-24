@@ -2,7 +2,7 @@
   <div class="media-body">
     <small>
       <% if policy(comment).destroy? %>
-        <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
+        <%= link_to "Delete", [@post, comment], method: :delete %>
       <% end %>
     </small>
     <p><%= comment.body %></p>
