@@ -26,10 +26,12 @@
 
 <div class="row">
   <div class="col-md-8">
-    <%= render template: "comments/_form" %>
+    <% if policy(Comment.new).create? %>
+      <%= render template: "comments/_form" %>
+    <% end %>
   </div>
 </div>
 
-<h5><strong>Other Comments</strong></h5>
+<h5><strong>Comments for this Post</strong></h5>
 <%= render template: "comments/_comment" %>
 
