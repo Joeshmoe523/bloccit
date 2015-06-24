@@ -1,13 +1,14 @@
 <h1><%= markdown_to_html @post.title %></h1>
 
 <div class-"row">
-  
   <% if @post.image? %>
-    <div class="col-md-2">
+    <div class="col-md-8">
       <%= image_tag(@post.image.large.url) %>
     </div>
   <% end %>
+</div>
 
+<div class-"row">
   <div class="col-md-8">
     <small>
       <%= image_tag(@post.user.avatar.tiny.url) if @post.user.avatar? %>
@@ -21,5 +22,14 @@
       <%= link_to "Edit", edit_topic_post_path(@topic, @post), class: 'btn btn-success' %>
     <% end %>
   </div>
-
 </div>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= render template: "comments/_form" %>
+  </div>
+</div>
+
+<h5><strong>Other Comments</strong></h5>
+<%= render template: "comments/_comment" %>
+
