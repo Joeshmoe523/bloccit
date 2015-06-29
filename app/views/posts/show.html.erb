@@ -44,7 +44,7 @@
 <div class="row">
   <div class="col-md-8">
     <% if policy(Comment.new).create? %>
-      <%= render template: "comments/_form", locals: { topic: @topic, post: @post, comment: @comment } %>
+      <%= render template: "comments/_form", locals: { post: @post } %>
     <% end %>
   </div>
 </div>
