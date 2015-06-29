@@ -1,3 +1,4 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -12,4 +13,9 @@
 .comment-buffer {
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.vote-arrows {
+  width: 40px;
+  text-align: center;
 }

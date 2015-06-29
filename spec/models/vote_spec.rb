@@ -1,11 +1,11 @@
-require 'rails-helper'
+require 'rails_helper'
 
 describe Vote do 
   describe "validations" do
 
     describe "value validation" do
       it "only allows -1 or 1 as values" do
-        expect( @post.vote.value != ( 1 || -1 )).to eq(true)
+        expect( @post.votes.value.valid? ).to eq( true )
       end
     end
 
