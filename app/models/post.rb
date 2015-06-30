@@ -35,4 +35,11 @@ class Post < ActiveRecord::Base
     user.votes.create(post_id: self.id, value: 1)
   end
 
+  def save_with_initial_vote
+    if save
+      create_vote
+      true
+    end
+  end
+
 end
