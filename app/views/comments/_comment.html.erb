@@ -1,16 +1,18 @@
-<div class="media">
-  <div class="media-left">
-    <%= image_tag(comment.user.avatar.small.url, class: "media-object") if comment.user.avatar? %>
-  </div>
-  <div class="media-body">
-    <small>
-      <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
-      <% if policy(comment).destroy? %>
-        <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
-      <% end %>
-    </small>
-    <p><%= comment.body %></p>
-  </div>
-</div>
+<% comment.each do |com| %>    
+  <%= content_tag :div, class: 'media', id: "comment-#{com.id}" do %>
+    <div class="media-left">
+      <%= image_tag(com.user.avatar.small.url, class: "media-object") if com.user.avatar? %>
+    </div>
+    <div class="media-body">
+      <small>
+        <%= com.user.name %> commented <%= time_ago_in_words(com.created_at) %> ago
+        <% if policy(com).destroy? %>
+          <%= link_to "Delete", [@post, com], method: :delete %>
+        <% end %>
+      </small>
+      <p><%= com.body %></p>
+    </div>
+  <% end %>
+<% end %>
 
 
