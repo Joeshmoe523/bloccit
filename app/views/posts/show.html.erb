@@ -51,6 +51,8 @@
 </div>
 
 <h5><strong>Comments for this Post</strong></h5>
-<%= render partial: 'comments/comment', locals: { comment: @comment } %>
+<% @comment.each do |com| %>    
+  <%= render partial: 'comments/comment', locals: { post: @post, comment: com } %>
+<% end %>
 
 
