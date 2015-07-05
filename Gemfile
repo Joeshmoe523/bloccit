@@ -15,6 +15,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'puma'
+
 gem 'newrelic_rpm'
 
 gem 'will_paginate', '~> 3.0.5'
