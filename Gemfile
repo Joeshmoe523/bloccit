@@ -15,6 +15,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'factory_girl_rails', '~> 4.0'
+
 gem 'will_paginate', '~> 3.0.5'
 
 gem 'fog'
