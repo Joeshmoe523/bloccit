@@ -23,10 +23,13 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.destroy
       flash[:notice] = "Comment was deleted."
-      redirect_to [@post.topic, @post]
     else
       flash[:error] = "There was an error deleting the comment. Please try again."
-      redirect_to [@post.topic, @post]
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
