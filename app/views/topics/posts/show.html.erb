@@ -42,17 +42,18 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-8">
-    <% if policy(Comment.new).create? %>
-      <%= render template: "comments/_form", locals: { post: @post } %>
-    <% end %>
-  </div>
+<div class='new-comment'>
+  <% if policy(Comment.new).create? %>
+    <%= render template: "comments/_form", locals: { post: @post } %>
+  <% end %>
 </div>
 
 <h5><strong>Comments for this Post</strong></h5>
-<% @comment.each do |com| %>    
-  <%= render partial: 'comments/comment', locals: { post: @post, comment: com } %>
-<% end %>
+<div class='js-comments'>
+  <% @comment.each do |com| %>    
+    <%= render partial: 'comments/comment', locals: { post: @post, comment: com } %>
+  <% end %>
+</div>
+
 
 

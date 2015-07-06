@@ -1,0 +1,8 @@
+<% if @comment.valid? %>
+  $('#comment-' +<%= @comment.id %>).add();
+  $('.js-comments').prepend("<%= escape_javascript(render(@comment)) %>");
+  $('.new-comment').html("<%= escape_javascript(render partial: 'comments/form', locals: { post: @post, comment: @new_comment }) %>");
+<% else %>
+  $('#comment-' +<%= @comment.id %>).prepend("<div class='alert alert-danger'><%= flash[:error] %></div>");
+  $('.new-comment').html("<%= escape_javascript(render partial: 'comments/form', locals: { post: @post, comment: @comment }) %>");
+<% end %>
